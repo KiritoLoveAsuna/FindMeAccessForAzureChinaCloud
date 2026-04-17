@@ -342,8 +342,9 @@ def authenticate(username, password, resource, client_id, user_agent, proxy, get
         
         # Invalid clientid
         elif "AADSTS700016" in response.text:
-            raise ValueError(colored(f"[!] Clientid {client_id[1]} is invalid","red", attrs=['bold']))
-
+            #raise ValueError(colored(f"[!] Clientid {client_id[1]} is invalid","red", attrs=['bold']))
+            print(f"[!] Clientid {client_id[1]} is invalid")
+            
         # default unknown
         else:
             response_data = json.loads(response.text)
